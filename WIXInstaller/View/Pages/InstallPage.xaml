@@ -1,0 +1,40 @@
+﻿<Page x:Class="WIXInstaller.VIew.Pages.InstallPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WIXInstaller.VIew.Pages"
+      mc:Ignorable="d"
+      Title="InstallPage" >
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../UIStyles/Dictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid Margin="5,80,5,5" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding InstallationText, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="10,0,0,0" FontFamily="Source Sans Pro Light" FontSize="25" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       FontSize="80" 
+                       FontFamily="Source Sans Pro" Foreground="White"
+                       Visibility="{Binding InstallProgressPercentVisibility, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                       >
+                <Run Text="{Binding InstallProgressValuePercent, UpdateSourceTrigger=PropertyChanged}"/>            
+                <Run Text=" %  "/>
+            </TextBlock>
+            <Control x:Name="Loader" 
+                     Style="{StaticResource BusyAnimationStyle}" 
+                     />
+        </StackPanel>
+    </Grid>
+</Page>

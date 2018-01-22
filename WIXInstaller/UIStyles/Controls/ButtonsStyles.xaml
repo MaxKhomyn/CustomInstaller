@@ -1,0 +1,220 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:name="clr-namespace:WIXInstaller.UIStyles.Controls.Ripple">
+
+    <!--<ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Ripple/Ripple.xaml" />
+    </ResourceDictionary.MergedDictionaries>-->
+    <!--Button-->
+    <SolidColorBrush x:Key="Button.Static.Background"    Color="#00DDDDDD"/>
+    <SolidColorBrush x:Key="Button.Static.Border"        Color="White"/>
+    <SolidColorBrush x:Key="Button.Static.Foreground"    Color="White"/>
+
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#7FFFFFFF"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Border"     Color="White"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Foreground" Color="White"/>
+
+    <SolidColorBrush x:Key="Button.Pressed.Background"   Color="#4CFFFFFF"/>
+    <SolidColorBrush x:Key="Button.Pressed.Border"       Color="White"/>
+    <SolidColorBrush x:Key="Button.Pressed.Foreground"   Color="White"/>
+
+    <SolidColorBrush x:Key="Button.Disabled.Background"  Color="#19000000"/>
+    <SolidColorBrush x:Key="Button.Disabled.Border"      Color="#B2FFFFFF"/>
+    <SolidColorBrush x:Key="Button.Disabled.Foreground"  Color="#B2FFFFFF"/>
+    <!--Button-->
+    <Style x:Key="StaticButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border         
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding Property=Border.CornerRadius}">
+                                <!--<name:Ripple Margin="0"
+                                              HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Stretch"
+                                              HorizontalContentAlignment="Stretch"
+                                              VerticalContentAlignment="Stretch"
+                                              Background="Transparent"
+                                              Feedback="#FFB6B6B6"
+                                              SnapsToDevicePixels="True">
+                                    <Rectangle HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Stretch"
+                                               Fill="Transparent" Margin="0">
+                                    </Rectangle>
+                                </name:Ripple>-->
+                            </Border>
+                            <ContentPresenter                                
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" 
+                                Cursor="{TemplateBinding Cursor}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{StaticResource Button.Static.Foreground}"/>
+
+            <Setter Property="Border.BorderThickness" Value="1"/>
+            <Setter Property="Border.CornerRadius" Value="0.5"/>
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource Button.MouseOver.Foreground}"/>
+
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource Button.Pressed.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource Button.Pressed.Foreground}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource Button.Disabled.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource Button.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <SolidColorBrush x:Key="SocialButton.Static.Background"    Color="#00DDDDDD"/>
+    <SolidColorBrush x:Key="SocialButton.Static.Border"        Color="White"/>
+    <SolidColorBrush x:Key="SocialButton.Static.Foreground"    Color="#FFC58232"/>
+
+    <SolidColorBrush x:Key="SocialButton.MouseOver.Background" Color="#7FFFFFFF"/>
+    <SolidColorBrush x:Key="SocialButton.MouseOver.Border"     Color="White"/>
+    <SolidColorBrush x:Key="SocialButton.MouseOver.Foreground" Color="#FFDE6565"/>
+
+    <SolidColorBrush x:Key="SocialButton.Pressed.Background"   Color="#4CFFFFFF"/>
+    <SolidColorBrush x:Key="SocialButton.Pressed.Border"       Color="White"/>
+    <SolidColorBrush x:Key="SocialButton.Pressed.Foreground"   Color="#FFDE6565"/>
+
+    <SolidColorBrush x:Key="SocialButton.Disabled.Background"  Color="#19000000"/>
+    <SolidColorBrush x:Key="SocialButton.Disabled.Border"      Color="#7F000000"/>
+    <SolidColorBrush x:Key="SocialButton.Disabled.Foreground"  Color="#7FDE6565"/>
+    
+    <Style x:Key="SocialButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border Background="{x:Null}">
+                                <Ellipse Stroke="{TemplateBinding BorderBrush}"
+                                         StrokeThickness="{TemplateBinding BorderThickness}"
+                                         Fill="{TemplateBinding Background}"/>
+                            </Border>
+                            <ContentPresenter                                
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" 
+                                Cursor="{TemplateBinding Cursor}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="Background" Value="{StaticResource SocialButton.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource SocialButton.Static.Border}"/>
+            <Setter Property="Foreground" Value="{StaticResource SocialButton.Static.Foreground}"/>
+
+            <Setter Property="Border.BorderThickness" Value="2"/>
+            <Setter Property="Border.CornerRadius" Value="0.5"/>
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SocialButton.MouseOver.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource SocialButton.MouseOver.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource SocialButton.MouseOver.Foreground}"/>
+
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource SocialButton.Pressed.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource SocialButton.Pressed.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource SocialButton.Pressed.Foreground}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" Value="{StaticResource SocialButton.Disabled.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource SocialButton.Disabled.Border}"/>
+                <Setter Property="Foreground" Value="{StaticResource SocialButton.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Button Images-->
+    <StreamGeometry x:Key="Next">M248.833,6.833H6.5v242.334h242.333V6.833z 
+        M113.524,88.583l28.284-28.285L209.511,128l-67.702,67.702l-28.284-28.285
+	L132.942,148H74.107v-40h58.835L113.524,88.583z</StreamGeometry>
+
+
+    <StreamGeometry x:Key="FaceBook">M2743 4555 c-206 -37 -384 -138 -499 -283 -62 -78 -129 -219 -161
+-338 -26 -96 -27 -110 -31 -436 l-4 -338 -214 0 -214 0 0 -390 0 -390 215 0
+215 0 0 -1090 0 -1090 460 0 460 0 0 1090 0 1090 305 0 c282 0 305 1 305 17 0
+25 69 702 75 736 l5 27 -345 0 -345 0 0 258 c0 247 1 260 23 302 41 82 51 84
+372 90 l280 5 3 378 2 377 -417 -1 c-296 -1 -439 -5 -490 -14z</StreamGeometry>
+    <StreamGeometry x:Key="BitBucket">M2340 4160 c-587 -33 -1052 -187 -1152 -383 -28 -55 -24 -87 57 -577
+117 -704 155 -914 172 -953 25 -57 119 -137 230 -194 117 -61 202 -92 343
+-126 199 -49 316 -61 570 -61 246 0 363 11 555 56 272 63 528 202 588 320 17
+33 59 268 182 1011 66 395 73 465 55 512 -15 40 -97 122 -161 160 -275 168
+-878 266 -1439 235z m637 -254 c158 -21 226 -34 313 -62 352 -111 52 -250
+-600 -279 -152 -7 -450 8 -609 30 -289 41 -448 116 -387 184 56 62 286 118
+584 141 147 12 563 3 699 -14z m-318 -867 c123 -28 235 -118 292 -235 29 -59
+34 -79 37 -165 6 -148 -33 -245 -139 -344 -207 -194 -548 -127 -676 132 -32
+65 -37 86 -41 162 -7 138 32 243 123 334 47 48 142 102 201 116 53 12 150 13
+203 0z
+    M2470 2824 c-98 -42 -158 -161 -131 -260 37 -136 186 -210 311 -153
+76 34 120 90 135 172 17 88 -44 199 -129 238 -50 23 -138 24 -186 3z
+    M1526 1894 c-9 -8 -16 -25 -16 -36 0 -51 103 -554 120 -588 31 -60
+115 -129 225 -181 188 -90 415 -133 705 -133 331 0 616 64 791 176 62 40 135
+115 150 156 15 37 109 529 109 567 0 63 -49 72 -120 24 -487 -330 -1373 -330
+-1860 0 -50 34 -81 39 -104 15z</StreamGeometry>
+    <StreamGeometry x:Key="GitHub">M1049 2544 c-255 -46 -482 -165 -672 -352 -193 -191 -316 -425 -362
+-689 -19 -111 -19 -336 0 -447 75 -429 368 -795 771 -962 95 -39 135 -43 164
+-14 18 18 20 33 20 156 l0 136 -37 -7 c-71 -13 -188 -7 -240 13 -83 32 -117
+65 -168 164 -44 85 -66 111 -155 187 l-35 30 26 9 c66 26 153 -24 233 -133 71
+-95 127 -127 225 -127 36 0 83 6 105 14 35 12 41 19 61 76 13 35 33 75 46 88
+12 13 21 25 18 27 -2 2 -50 13 -107 25 -126 26 -232 75 -306 143 -112 102
+-174 286 -163 489 5 111 28 180 88 265 38 55 39 59 28 94 -17 51 -14 176 6
+244 l17 59 46 -7 c62 -9 162 -49 238 -95 l61 -37 89 19 c123 26 345 26 468 0
+l89 -19 65 40 c76 46 168 82 233 92 l46 7 18 -64 c21 -72 24 -187 6 -239 -11
+-34 -9 -39 33 -102 68 -102 81 -150 80 -302 0 -91 -6 -149 -18 -194 -62 -228
+-217 -356 -483 -401 -40 -6 -73 -15 -73 -19 0 -5 9 -16 20 -26 11 -10 29 -42
+40 -72 18 -48 20 -77 20 -283 0 -217 1 -231 20 -250 29 -29 69 -25 164 14 402
+167 696 534 771 963 20 112 19 336 0 449 -46 262 -164 484 -359 680 -196 195
+-418 313 -680 359 -110 19 -351 19 -457 -1z</StreamGeometry>
+    <StreamGeometry x:Key="Mail">M431 4394 c-30 -8 -76 -26 -102 -41 -59 -31 -148 -123 -178 -181 -53
+-104 -51 -33 -51 -1717 0 -1723 -4 -1623 63 -1733 63 -106 169 -183 283 -207
+104 -22 4174 -22 4278 0 114 24 220 101 283 207 67 110 63 10 63 1733 0 1705
+3 1617 -57 1727 -31 58 -123 147 -181 177 -105 54 14 51 -2252 50 -1798 0
+-2103 -2 -2149 -15z m4202 -350 c56 -10 71 -45 70 -164 -2 -160 -63 -307 -208
+-495 -88 -115 -164 -180 -740 -635 -302 -239 -606 -481 -675 -538 -137 -114
+-287 -218 -365 -253 -38 -18 -69 -23 -131 -23 -74 -1 -87 2 -155 37 -90 46
+-212 132 -356 252 -59 50 -364 293 -677 540 -314 248 -600 480 -637 516 -125
+123 -203 248 -253 407 -27 88 -49 263 -36 297 10 25 39 51 65 58 30 7 4054 8
+4098 1z m-3788 -1310 c294 -227 698 -549 985 -785 240 -197 295 -234 442 -303
+119 -56 202 -76 313 -76 119 0 197 21 340 90 144 69 173 90 520 375 332 272
+484 392 830 661 149 115 307 245 353 288 l82 79 -2 -1072 -3 -1073 -28 -24
+-28 -24 -2064 0 -2064 0 -28 24 -28 24 -3 1074 -2 1073 77 -77 c43 -42 182
+-156 308 -254z</StreamGeometry>
+    
+</ResourceDictionary>

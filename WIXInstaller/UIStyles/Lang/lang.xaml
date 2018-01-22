@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:String x:Key="ISALREADYINSTALL">УЖЕ ВСТАНОВЛЕНО</v:String>
+    <v:String x:Key="INSTALL">ІНСТАЛЮВАТИ</v:String>
+    <v:String x:Key="UPDATE">ОНОВЛЕННЯ ДО </v:String>
+    
+    <v:String x:Key="ISNOTUNINSTALL">ЩЕ НЕ ВСТАНОВЛЕНО</v:String>
+    <v:String x:Key="UNINSTALL">ДЕІНСТАЛЮВАТИ</v:String>
+    
+    <v:String x:Key="FINISH">ЗАВЕРШИТИ</v:String>
+    
+    <v:String x:Key="BACK">НАЗАД</v:String>
+    <v:String x:Key="NEXT">ДАЛІ</v:String>
+
+    <v:String x:Key="Language">Мова</v:String>
+    <v:String x:Key="Welcome">Основна</v:String>
+    <v:String x:Key="License">Ліцензія</v:String>
+    <v:String x:Key="Activation">Активація</v:String>
+    <v:String x:Key="Options">Налаштування</v:String>
+    <v:String x:Key="Install">Інсталяція</v:String>
+    <v:String x:Key="Finish">Завершити</v:String>
+
+    <v:String x:Key="UnInstall">Деінсталяція</v:String>
+    <v:String x:Key="UpDate">Оновлення</v:String>
+
+    <v:String x:Key="Paste">Вставити</v:String>
+
+    <v:String x:Key="YouAreNotConnectedToTheInternet">У вас немає з'єднання з інтернетом. Під'єднайтеь до мережі інтернет та перезапустіть додаток!</v:String>
+    <v:String x:Key="ActivationError">Помилка активації. Ваш e-mail або ж ключ активації не є вірними!</v:String>
+
+    <v:String x:Key="PleaseWaitWhileUnInstallCompleted">Будь ласка зачекайте поки деінсталяція завершиться</v:String>
+    <v:String x:Key="PleaseWaitWhileUpDateCompleted">Будь ласка зачекайте поки оновлення завершиться</v:String>
+    
+    <v:String x:Key="SelectLanguage">Виберіть мову</v:String>
+
+    <v:String x:Key="Wrong">Невірно: </v:String>
+    <v:String x:Key="TimeOut">Термін придатності: </v:String>
+    
+    <v:String x:Key="EMail">Електронна адреса</v:String>
+    <v:String x:Key="ActivationKey">Ключ активації</v:String>
+
+    <v:String x:Key="LicenseAgreement">Ліцензійна угода</v:String>
+    <v:String x:Key="IAcceptTheTermsOfTheLicenseAgreement">Приймаю умови ліцензійної угоди</v:String>
+
+    <v:String x:Key="PleaseWaitWhileInstallationComplete">Будь ласка зачекайте поки інсталяція завершиться</v:String>
+
+    <v:String x:Key="LaunchApplication">Запустити додаток</v:String>
+
+    <v:String x:Key="InstallComplete">Інсталяція завершена!</v:String>
+    <v:String x:Key="UpDateComplete">Оновлення завершено!</v:String>
+    <v:String x:Key="UnInstallComplete">Деінсталяція завершена!</v:String>
+
+
+    <v:String x:Key="Description">Про нас</v:String>
+    <v:String x:Key="About">Web Design &amp; Development  •  SEO  •  Software Design &amp; Development</v:String>
+
+    <v:String x:Key="CreateShortcutOnTheDesktop">Створити ярлик на робочому столі</v:String>
+    <v:String x:Key="CreateStartMenuFolder">Створити папку в меню пуск</v:String>
+    
+</ResourceDictionary>

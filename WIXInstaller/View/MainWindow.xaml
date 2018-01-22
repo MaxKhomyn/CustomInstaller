@@ -1,0 +1,234 @@
+﻿<Window x:Class="WIXInstaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WIXInstaller"
+        mc:Ignorable="d"
+        Title="Sample Installer"
+        Height="600" Width="1200"        
+        MinHeight="500" MinWidth="1200"
+        Loaded="Window_Loaded" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource WindowStyle}" >
+    <!--WindowState="Maximized"-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../UIStyles/Dictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Panel.ZIndex="2" Margin="0,-80,0,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#B2FFFFFF" Offset="0"/>
+                    <GradientStop Color="#7F000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <!--<Grid x:Name="Progress" Background="#19007ACC">
+                    <TextBlock TextWrapping="Wrap"  
+                               FontSize="34"
+                               VerticalAlignment="Center" Foreground="#B2000000" FontFamily="Source Sans Pro" HorizontalAlignment="Center">
+                        
+                            <Run>Progress:</Run>
+                    </TextBlock>
+                </Grid>-->
+
+            <Border x:Name="MenuIndicator"
+                    Background="#CC007ACC"
+                    BorderBrush="#FF007ACC"
+                    BorderThickness="5,1"
+                    Height="46" Margin="0"
+                    VerticalAlignment="Top">
+                <Polygon Points="-1,0 15,15 -1,30" Fill="#FF007ACC" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Polygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Polygon.RenderTransform>
+                </Polygon>
+            </Border>
+
+            <StackPanel x:Name="MenuIterator">
+                <TextBlock TextWrapping="Wrap"  
+                            FontSize="25" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" 
+                            FontFamily="Source Sans Pro" 
+                            Foreground="#B2000000"
+                            Text="{DynamicResource Language}" Margin="0,7,0,8"/>
+                <TextBlock TextWrapping="Wrap"  
+                            FontSize="25"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" 
+                            FontFamily="Source Sans Pro" 
+                            Foreground="#B2000000"
+                            Text="{DynamicResource Welcome}" Margin="0,7,0,8"/>
+
+                <TextBlock TextWrapping="Wrap"  
+                            FontSize="25"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" 
+                            FontFamily="Source Sans Pro" 
+                            Foreground="#B2000000"
+                            Text=". . ." Margin="0,7,0,8"/>
+
+                <TextBlock TextWrapping="Wrap"  
+                            FontSize="25"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" 
+                            FontFamily="Source Sans Pro" 
+                            Foreground="#B2000000"
+                            Text="{DynamicResource Finish}" Margin="0,7,0,8"/>
+            </StackPanel>
+
+            <!--<Button x:Name="MinimizeMainMenuButton" Height="25" 
+                    VerticalAlignment="Bottom" 
+                    BorderThickness="0" 
+                    Style="{StaticResource WindowStyleTitleBarButton}"/>-->
+        </Grid>
+
+        <Border x:Name="MainBorder" 
+                Grid.Column="1" Margin="0,-80,0,0">
+            <Grid>
+                <!--<Border Background="#348cb2"/>
+                <Border Background="#99000000"/>-->
+                <Image x:Name="BackGroundImage" Grid.Column ="1"
+                       VerticalAlignment="Center" Stretch="UniformToFill"  Margin="0,0,0,0"  
+                       Source="/WIXInstaller;component/Assets/Background.jpg" HorizontalAlignment="Right" />
+                <Border Grid.Column ="1"
+                        BorderBrush="{DynamicResource HoverColor}" 
+                        BorderThickness="1,0" Margin="0,0,-1.4,0"/>
+                <Grid>
+                    <!--Background="#99000000"-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+
+                    <Frame x:Name="MainFrame" Grid.Row="0"
+                               HorizontalContentAlignment="Stretch"
+                               VerticalContentAlignment="Stretch"
+                               NavigationUIVisibility="Hidden"
+                               Margin="8,85,8,0"/>
+
+                    <ProgressBar Grid.Row="2"
+                                 x:Name="InstallingProgressBar"
+                                 Margin="0"
+                                 Maximum="{Binding MaxValAppPartsSize, UpdateSourceTrigger=PropertyChanged}"
+                                 Value="{Binding InstallProgressValue, UpdateSourceTrigger=PropertyChanged}"
+                                 Grid.ColumnSpan="2" Background="Transparent" />
+                    <!--Maximum="{Binding MaxValAppPartsSize, UpdateSourceTrigger=PropertyChanged}"
+                                 Value="{Binding InstallProgressValue, UpdateSourceTrigger=PropertyChanged}"-->
+                    <StackPanel Orientation="Horizontal" 
+                                        Margin="0" Grid.Row="2" 
+                                        HorizontalAlignment="Center" >
+                        <Canvas Width="65" Height="65">
+                            <Button x:Name="FacebookButton" Style="{StaticResource SocialButtonStyle}" 
+                                        Width="65" Height="65" Canvas.Top="0" Canvas.Left="0"
+                                        Command="{Binding OpenFaceBookCommand}">
+                                <Path Data="{DynamicResource FaceBook}" 
+                                              Stretch="Uniform" 
+                                              Fill="White" 
+                                              Margin="0,10" 
+                                              RenderTransformOrigin="0.5,0.5" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                            <RotateTransform Angle="-180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button>
+                        </Canvas>
+                        <Canvas Width="65" Height="65"
+                                        Margin="10,0,5,0">
+                            <Button x:Name="BucketkButton" Style="{StaticResource SocialButtonStyle}" 
+                                        Width="65" Height="65" Canvas.Top="0" Canvas.Left="0"
+                                        Command="{Binding OpenBitBucketCommand}">
+                                <Path Data="{DynamicResource BitBucket}" 
+                                          Stretch="Uniform" 
+                                          Fill="White" 
+                                          Margin="0,10" 
+                                          RenderTransformOrigin="0.5,0.5" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button>
+                        </Canvas>
+                        <Canvas Width="65" Height="65"
+                                            Margin="5,0,10,0">
+                            <Button x:Name="GitButton" Style="{StaticResource SocialButtonStyle}"  
+                                            Width="65" Height="65" Canvas.Top="0" Canvas.Left="0"
+                                            Command="{Binding OpenGitHubCommand}">
+                                <Path Data="{DynamicResource GitHub}" 
+                                              Stretch="Uniform" 
+                                              Fill="White" 
+                                              Margin="0,10" 
+                                              RenderTransformOrigin="0.5,0.5" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button>
+                        </Canvas>
+                        <Canvas Width="65" Height="65">
+                            <Button x:Name="MailButton" Style="{StaticResource SocialButtonStyle}" 
+                                            Width="65" Height="65" Canvas.Top="0" Canvas.Left="0"
+                                            Command="{Binding OpenMailCommand}">
+                                <Path Data="{DynamicResource Mail}" 
+                                              Stretch="Uniform" 
+                                              Fill="White" 
+                                              Margin="0,10" 
+                                              RenderTransformOrigin="0.5,0.5"
+                                              Width="47" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                                            <SkewTransform AngleY="0" AngleX="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Button>
+                        </Canvas>
+                    </StackPanel>
+
+                    <ResizeGrip Opacity="0.75" Grid.Row="2" 
+                                VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+
+                </Grid>
+            </Grid>
+
+        </Border>
+    </Grid>
+</Window>

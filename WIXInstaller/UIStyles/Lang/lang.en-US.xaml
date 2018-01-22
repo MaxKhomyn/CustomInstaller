@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:String x:Key="ISALREADYINSTALL">IS ALREADY INSTALL</v:String>
+    <v:String x:Key="INSTALL">INSTALL</v:String>
+    <v:String x:Key="UPDATE">UPDATE TO </v:String>
+    
+    <v:String x:Key="UNINSTALL">UNINSTALL</v:String>
+    <v:String x:Key="ISNOTUNINSTALL">IS NOT INSTALL</v:String>
+    
+    <v:String x:Key="FINISH">FINISH</v:String>
+
+
+    <v:String x:Key="BACK">BACK</v:String>
+    <v:String x:Key="NEXT">NEXT</v:String>
+
+    <v:String x:Key="Language">Language</v:String>
+    <v:String x:Key="Welcome">Welcome</v:String>
+    <v:String x:Key="License">License</v:String>
+    <v:String x:Key="Activation">Activation</v:String>
+    <v:String x:Key="Options">Options</v:String>
+    <v:String x:Key="Install">Install</v:String>
+    <v:String x:Key="Finish">Finish</v:String>
+
+    <v:String x:Key="UnInstall">Uninstall</v:String>
+    <v:String x:Key="UpDate">Update</v:String>
+
+    <v:String x:Key="Paste">Paste</v:String>
+
+    <v:String x:Key="YouAreNotConnectedToTheInternet">You are not connected to the internet. Connect to the internet and try again!</v:String>
+    <v:String x:Key="ActivationError">Activation error. Your e-mail or activation key is wrong!</v:String>
+
+    <v:String x:Key="PleaseWaitWhileUnInstallCompleted">Please wait while uninstall completed</v:String>
+    <v:String x:Key="PleaseWaitWhileUpDateCompleted">Please wait while update completed</v:String>
+
+    <v:String x:Key="SelectLanguage">Select Language</v:String>    
+
+    <v:String x:Key="Wrong">Wrong</v:String>
+    <v:String x:Key="TimeOut">Expiration date:</v:String>
+    
+    <v:String x:Key="EMail">E-Mail</v:String>
+    <v:String x:Key="ActivationKey">Activation key</v:String>
+
+    <v:String x:Key="LicenseAgreement">License agreement</v:String>
+    <v:String x:Key="IAcceptTheTermsOfTheLicenseAgreement">I accept the terms of the license agreement</v:String>
+
+    <v:String x:Key="PleaseWaitWhileInstallationComplete">Please wait while installation complete</v:String>    
+    
+    <v:String x:Key="LaunchApplication">Launch Application</v:String>
+
+    <v:String x:Key="InstallComplete">Installation complete!</v:String>
+    <v:String x:Key="UpDateComplete">Update complete!</v:String>
+    <v:String x:Key="UnInstallComplete">Uninstalling completed!</v:String>
+
+
+    <v:String x:Key="Description">Description</v:String>
+    <v:String x:Key="About">Web Design &amp; Development  •  SEO  •  Software Design &amp; Development</v:String>
+    
+    <v:String x:Key="CreateShortcutOnTheDesktop">Create a shortcut on the desktop</v:String>
+    <v:String x:Key="CreateStartMenuFolder">Create a start menu folder</v:String>
+    
+</ResourceDictionary>

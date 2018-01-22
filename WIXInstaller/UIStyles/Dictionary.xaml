@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Lang/lang.xaml" />
+        <!--<ResourceDictionary Source="Lang/lang.uk-UA.xaml" />-->
+        <ResourceDictionary Source="Controls/Others.xaml" />
+        <ResourceDictionary Source="Controls/Colors.xaml" />
+        <ResourceDictionary Source="Controls/CheckBoxesStyles.xaml" />
+        <ResourceDictionary Source="Controls/TextBoxStyle.xaml"/>
+        <ResourceDictionary Source="Controls/ButtonsStyles.xaml" />
+        <ResourceDictionary Source="Controls/Loader.xaml"/>
+        <ResourceDictionary Source="Controls/ProgressBarStyle.xaml"/>
+        <ResourceDictionary Source="Controls/ComboBoxeStyles.xaml"/>
+        <ResourceDictionary Source="WindowStyle.xaml"/>
+
+        <!--<ResourceDictionary Source="RadioButtonStyle.xaml" />
+                    <ResourceDictionary Source="ScrollStyle.xaml" />-->
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
