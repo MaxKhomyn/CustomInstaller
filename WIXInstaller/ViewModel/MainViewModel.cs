@@ -1,26 +1,26 @@
-using System;
-using System.IO;
-using System.Xml;
-using System.Windows;
-using System.Threading;
+using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using static WIXInstaller.AppInstaller;
+using WIXInstaller.BLL.Model.Iterator;
+using WIXInstaller.Model.Installation;
+using WIXInstaller.UIStyles.Controls;
+using System.Collections.Generic;
+using GalaSoft.MvvmLight.Command;
+using WIXInstaller.Model.UpDate;
+using System.Windows.Controls;
+using WIXInstaller.VIew.Pages;
+using WIXInstaller.Services;
+using System.Windows.Markup;
+using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using InstallerWIX.Model;
 using System.Diagnostics;
 using WIXInstaller.Model;
-using System.Windows.Media;
-using System.Windows.Markup;
-using WIXInstaller.Services;
-using WIXInstaller.VIew.Pages;
-using System.Windows.Controls;
-using WIXInstaller.Model.UpDate;
-using GalaSoft.MvvmLight.Command;
-using System.Collections.Generic;
-using WIXInstaller.UIStyles.Controls;
-using WIXInstaller.Model.Installation;
-using WIXInstaller.BLL.Model.Iterator;
-using static WIXInstaller.AppInstaller;
-using Microsoft.WindowsAPICodePack.Dialogs;
-using Microsoft.Tools.WindowsInstallerXml.Bootstrapper;
+using System.Threading;
+using System.Windows;
+using System.Xml;
+using System.IO;
+using System;
 
 namespace WIXInstaller.ViewModel
 {
@@ -131,18 +131,12 @@ namespace WIXInstaller.ViewModel
 
         #region string
 
-        public string RequiredSize
-        {
-            get { return Settings.RequiredSize; }
-        }
+        public string RequiredSize => Settings.RequiredSize;
 
         private string installCompleted;
         public string InstallCompleted
         {
-            get
-            {
-                return installCompleted;
-            }
+            get => installCompleted;
             set
             {
                 installCompleted = value;

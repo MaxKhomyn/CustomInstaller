@@ -4,12 +4,7 @@ namespace WIXInstaller.Model.UpDate
 {
     class CheckVersion
     {
-        public static bool Check(string CurrentVersion, string VersionFromServer)
-        {
-            if (DecodeVersion(CurrentVersion) < DecodeVersion(VersionFromServer))
-                return true;
-            return false;
-        }
+        public static bool Check(string CurrentVersion, string VersionFromServer) => DecodeVersion(CurrentVersion) < DecodeVersion(VersionFromServer);
 
         private static double DecodeVersion(string Version)
         {

@@ -114,30 +114,26 @@
                 <Border Grid.Column ="1"
                         BorderBrush="{DynamicResource HoverColor}" 
                         BorderThickness="1,0" Margin="0,0,-1.4,0"/>
-                <Grid>
-                    <!--Background="#99000000"-->
+                <Grid> <!--Background="#99000000"-->
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="85"/>
+                        <RowDefinition/>
                         <RowDefinition Height="75"/>
                     </Grid.RowDefinitions>
 
-                    <Frame x:Name="MainFrame" Grid.Row="0"
-                               HorizontalContentAlignment="Stretch"
-                               VerticalContentAlignment="Stretch"
-                               NavigationUIVisibility="Hidden"
-                               Margin="8,85,8,0"/>
+                    <Frame x:Name="MainFrame" Grid.Row="1" HorizontalContentAlignment="Stretch"
+                           VerticalContentAlignment="Stretch"
+                           Margin="8,0"/>
 
-                    <ProgressBar Grid.Row="2"
-                                 x:Name="InstallingProgressBar"
-                                 Margin="0"
+                    <ProgressBar Grid.Row="3" Margin="0" x:Name="InstallingProgressBar"                                
                                  Maximum="{Binding MaxValAppPartsSize, UpdateSourceTrigger=PropertyChanged}"
                                  Value="{Binding InstallProgressValue, UpdateSourceTrigger=PropertyChanged}"
-                                 Grid.ColumnSpan="2" Background="Transparent" />
+                                 Grid.ColumnSpan="2" Background="Transparent"/>
                     <!--Maximum="{Binding MaxValAppPartsSize, UpdateSourceTrigger=PropertyChanged}"
                                  Value="{Binding InstallProgressValue, UpdateSourceTrigger=PropertyChanged}"-->
-                    <StackPanel Orientation="Horizontal" 
-                                        Margin="0" Grid.Row="2" 
-                                        HorizontalAlignment="Center" >
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0" Grid.Row="3"
+                                HorizontalAlignment="Center">
                         <Canvas Width="65" Height="65">
                             <Button x:Name="FacebookButton" Style="{StaticResource SocialButtonStyle}" 
                                         Width="65" Height="65" Canvas.Top="0" Canvas.Left="0"
@@ -223,7 +219,7 @@
                         </Canvas>
                     </StackPanel>
 
-                    <ResizeGrip Opacity="0.75" Grid.Row="2" 
+                    <ResizeGrip Opacity="0.75" Grid.Row="3" 
                                 VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
 
                 </Grid>

@@ -11,6 +11,7 @@
         <ResourceDictionary Source="Controls/Loader.xaml"/>
         <ResourceDictionary Source="Controls/ProgressBarStyle.xaml"/>
         <ResourceDictionary Source="Controls/ComboBoxeStyles.xaml"/>
+        <ResourceDictionary Source="Controls/FrameStyle.xaml"/>
         <ResourceDictionary Source="WindowStyle.xaml"/>
 
         <!--<ResourceDictionary Source="RadioButtonStyle.xaml" />
