@@ -22,14 +22,8 @@ namespace WIXInstaller
 
         public static string Args = string.Empty;
 
-        private static List<CultureInfo> m_Languages = new List<CultureInfo>();
-        public static List<CultureInfo> Languages
-        {
-            get
-            {
-                return m_Languages;
-            }
-        }
+        private static List<CultureInfo> _Languages = new List<CultureInfo>();
+        public static List<CultureInfo> Languages => _Languages;
 
         public static event EventHandler LanguageChanged;
 
@@ -74,9 +68,9 @@ namespace WIXInstaller
                 view = new MainWindow { DataContext = viewModel };
                 view.Closed += (sender, e) => BootstrapperDispatcher.InvokeShutdown();
 
-                m_Languages.Clear();
-                m_Languages.Add(new CultureInfo("uk-UA"));
-                m_Languages.Add(new CultureInfo("en-US"));
+                Languages.Clear();
+                Languages.Add(new CultureInfo("uk-UA"));
+                Languages.Add(new CultureInfo("en-US"));
 
                 view.Show();
 

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Windows.Controls;
 using System.Globalization;
-using System.Windows.Controls;
+using System;
 
 namespace WIXInstaller.VIew.Pages
 {
@@ -33,12 +33,13 @@ namespace WIXInstaller.VIew.Pages
                 LanguagesBox.SelectionChanged += ChangeLanguageClick;
                 LanguagesBox.Items.Add(Lang);
 
-                if(CB.IsChecked == true)
+                if (CB.IsChecked == true)
                 LanguagesBox.SelectedItem = Lang;
             }
         }
 
         #region Language
+
         private void LanguageChanged(Object sender, EventArgs e)
         {
             CultureInfo currLang = AppInstaller.Language;
@@ -67,6 +68,7 @@ namespace WIXInstaller.VIew.Pages
                 }
             }
         }
+
         #endregion
     }
 }
